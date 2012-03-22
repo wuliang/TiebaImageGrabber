@@ -1,0 +1,36 @@
+* Introduce
+"TiebaImageGrabber" is web crawler based on scrapy. 
+works for Baidu_Tieba (one popular Chinese communication platform. http://wikipedia.org/wiki/Baidu_Tieba)
+This crawler grab the signature pictures of the posting.
+
+* Requirements
+** Scrapy (with a patch to support chunked-transfer)
+
+* Usage
+** Setting start point.
+start_urls = ['http://tieba.baidu.com/gift/f/dir?id=4']
+change the id to groups you want
+
+** setting store dir
+set STORE_DIR in setting.py
+
+** RUN!
+
+** Animation photo finder
+TiebaImageTool/GetAnimation.py
+used to filter animation photos (can't decide by extention)
+
+* Develope
+** wireshark tips
+gzip package always started with “1f 8b”
+According to the RFC for gzip (http://tools.ietf.org/html/rfc1952) 
+
+** why not use ImagesPipeline ?
+ImagePipleline convert images to JPEG(RGB mode) automatically, and no "toggler" exists.
+so, use MediaPipeline is better.
+
+** release
+- Thu Mar 22 15:30:53 CST 2012
+by wuliang [www.wuliang.cn at gmail.com]
+
+
